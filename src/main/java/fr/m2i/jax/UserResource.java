@@ -34,7 +34,7 @@ public class UserResource {
 	}
 	
 	@GET
-	@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+	@Produces({MediaType.APPLICATION_JSON})
 	public List<User> get() {
 	    
 		return this.listUser;

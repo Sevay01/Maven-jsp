@@ -15,10 +15,7 @@ import javax.servlet.http.HttpFilter;
  */
 @WebFilter("/welcome")
 public class MonFiltreFilter extends HttpFilter implements Filter {
-       
-    /**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 
 	/**
