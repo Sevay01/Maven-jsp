@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet("/welcome")
+@WebServlet(name="WelcomeServlet", urlPatterns = "/welcome")
 public class Welcome extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final Map<String, String> PAGES;
@@ -29,6 +29,9 @@ public class Welcome extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String selectPage = request.getParameter("page");
+		
+		request.setAttribute("exemple", "exemple");
+	
 		
 		if(selectPage != null && !selectPage.isEmpty() && PAGES.containsKey(selectPage)) {
 			selecteurPage(PAGES.get(selectPage), request, response);

@@ -24,14 +24,33 @@
 <main>
 
 
+<form action="/demo1/api/User" method="POST">
+	<input type="text" name="nom">
+	<input type="text" name="prenom">
+	<input type="submit" value="envoyer">
+
+</form>
 
 
-
-
+<input type="button" value="Recup" id="get">
 </main>
 
 
 
  <jsp:include page="/WEB-INF/pages/inc/_footer.jsp"/>
+ 
+ 
+ <script>
+ 
+	 document.querySelector('#get').addEventListener('click',()=>{
+			 fetch("/demo1/api/User")
+			 .then((response) => response.json())
+			 .then((data)=>{
+				console.log(data); 
+			 });
+	});
+
+ 
+ </script>
 </body>
 </html>

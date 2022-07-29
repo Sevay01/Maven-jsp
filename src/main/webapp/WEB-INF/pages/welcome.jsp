@@ -23,15 +23,44 @@
 
 <main>
 
+<div id="parent">
+</div>
+
+<form action="/demo1/api/User" method="POST">
+	<input type="text" name="nom">
+	<input type="text" name="prenom">
+	<input type="submit" value="envoyer">
+
+</form>
 
 
 
-
-
+<input type="button" value="Recup" id="get">
 </main>
 
 
 
  <jsp:include page="/WEB-INF/pages/inc/_footer.jsp"/>
+ 
+ 
+ <script>
+ 
+ 	
+	 document.querySelector('#get').addEventListener('click',()=>{
+			 fetch("/demo1/api/User")
+			 .then((response) => response.json())
+			 .then((data)=>{
+				 let parent = document.getElementById('parent');
+					console.table(data);
+				 for(element of data){
+					let p = document.createElement('p');
+					p.innerHTML = element.login + "---" +element.mdp +"<br>";
+					parent.appendChild(p);
+				} 
+			 });
+	});
+
+ 
+ </script>
 </body>
 </html>
